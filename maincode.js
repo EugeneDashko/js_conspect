@@ -1,6 +1,6 @@
 
 //START методы массивов
-//===============================================================================
+//=================================================================================================================================================================
 
 const people = [
     {name: 'Владилен', age: 25, budget: 40000},
@@ -44,7 +44,7 @@ const people = [
 
 
 //============================
-//Filter - чтобы фильтровать массив по какому-то условию
+//Filter - чтобы фильтровать массив по какому-то условию. возвращает новый массив
 
 // const adults =[];
 // for (let i=0; i<people.length; i++) {
@@ -99,5 +99,23 @@ const people = [
 // console.log(igor);
 
 //FindIndex - работает точо так же как и find, но на выходе получаем индекс
-const igorIndex = people.findIndex(person => person.name == 'Игорь');
-console.log(igorIndex);
+// const igorIndex = people.findIndex(person => person.name == 'Игорь');
+// console.log(igorIndex);
+
+
+//совмесное использование Find & FindIndex:
+const amount = people
+    .filter(person => person.budget > 3000)
+    .map(person => {
+        return {
+            info: `${person.name} (${person.age})`,
+            budget: Math.sqrt(person.budget)
+        }
+    })
+    .reduce((total, person) => total +person.budget, 0)
+
+console.log(amount)
+
+
+//START методы массивов
+//====================================================================================================================================
