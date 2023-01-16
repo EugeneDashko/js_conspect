@@ -1,6 +1,8 @@
-
-//START методы массивов
 //=================================================================================================================================================================
+//START методы массивов
+
+//Перебор массива
+
 
 const people = [
     {name: 'Владилен', age: 25, budget: 40000},
@@ -8,11 +10,8 @@ const people = [
     {name: 'Игорь', age: 49, budget: 50000},
     {name: 'Михаил', age: 15, budget: 1800},
     {name: 'Василиса', age: 24, budget: 25000},
-    {name: 'Виктория', age: 38, budget: 2300}, 
+    {name: 'Виктория', age: 38, budget: 2300},
 ]
-
-
-//Пыеребор массива
 
 //============================
 // for (let i=0; i<people.length; i++) {
@@ -22,12 +21,19 @@ const people = [
 
 //============================
 // for (person of people) {
-//     console.log(person)
+//     console.log(person) 
 // }
 
 
-//============================
-// forEach
+
+
+
+
+//====//=====//======//======
+// FOREACH = for
+//====//=====//======//======
+
+
 //ES5:
 // people.forEach(function(person, index, peopleArr) {
 //     console.log(person)
@@ -36,15 +42,30 @@ const people = [
 // people.forEach(person => console.log(person))
 
 
-//============================
-//Map - с помощью его можно создавать новые массивы ( он принимает такие же аргументы как и меотод forEach).
+
+
+
+//====//=====//======//======
+//MAP - с помощью его можно создавать новые массивы ( он принимает такие же аргументы как и меотод forEach).
 // И ЗДЕСЬ ВАЖНО ЧТО-ТО ВЕРНУТЬ
+//====//=====//======//======
+
+
 // const newPeople = people.map(person => person.name + ' ' + person.age);
 // console.log(newPeople)
 
 
-//============================
-//Filter - чтобы фильтровать массив по какому-то условию. возвращает новый массив
+
+
+
+
+//====//=====//======//======
+//FILTER - чтобы фильтровать массив по какому-то условию.
+//(возвращает true или false и в зависимости от этого элемент попадет в новый массив или нет.
+//возвращает новый массив
+//====//=====//======//======
+
+
 
 // const adults =[];
 // for (let i=0; i<people.length; i++) {
@@ -69,9 +90,44 @@ const people = [
 // console.log(adults)
 
 
-//============================
-//Reduce - принимает 2 параметра (1-колбэк функция(принимает тоже 2 параметра total, person (итерируемый элемент по массиву)),
+
+
+
+//====//=====//======//======
+//EVERY- спользуется для проверки массива. Возвращает true, если вызов callback вернёт true для КАЖДОГО элемента arr.
+//====//=====//======//======
+
+// let newArr = people.every(person => {
+//     if (person.age > 12) {
+//         return true
+//     }
+// });
+// console.log(newArr)
+
+
+
+//====//=====//======//======
+//SOME- тоже самое что и every, но проверяет есть ли ХОТЯ ОДИН верный элемент, который отвечает приведенным условиям
+//====//=====//======//======
+
+// let newArr = people.some(person => {
+//     if (person.age > 22) {
+//         return true
+//     }
+// });
+// console.log(newArr)
+
+
+
+
+
+
+
+//====//=====//======//======
+//REDUCE - принимает 2 параметра (1-колбэк функция(принимает тоже 2 параметра total, person (итерируемый элемент по массиву)),
 // 2 - начальное значение total)
+//====//=====//======//======
+
 
 // let amount = 0;
 // for (let i = 0; i < people.length; i++) {
@@ -91,6 +147,7 @@ const people = [
 // console.log(amount)
 
 
+
 //============================
 //Методы для поиска определенных элементов
 
@@ -104,17 +161,17 @@ const people = [
 
 
 //совмесное использование Find & FindIndex:
-const amount = people
-    .filter(person => person.budget > 3000)
-    .map(person => {
-        return {
-            info: `${person.name} (${person.age})`,
-            budget: Math.sqrt(person.budget)
-        }
-    })
-    .reduce((total, person) => total +person.budget, 0)
+// const amount = people
+//     .filter(person => person.budget > 3000)
+//     .map(person => {
+//         return {
+//             info: `${person.name} (${person.age})`,
+//             budget: Math.sqrt(person.budget)
+//         }
+//     })
+//     .reduce((total, person) => total +person.budget, 0)
 
-console.log(amount)
+// console.log(amount)
 
 
 //START методы массивов
