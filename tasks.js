@@ -1,4 +1,4 @@
-//===================//=============  #1  ===================//============
+//===================//=============  #1 ПАЛИНДРОМ  ===================//============
 
 
 // //Развернутая запись: 
@@ -29,25 +29,47 @@
 
 
 
-//===================//=============  #2  ===================//============
+//===================//=============  #2 СРАВНЕНИЕ СИМВОЛОВ СТРОКИ ===================//============
 
 //case 1
 
+function isUnique(string) {
+    for(let i=0; i< string.length; i++) {
+        const char = string[i];
+        if(string.indexOf(char) !== i) {
+            return false
+        }
+    }
+    return true
+}
+
+console.log(isUnique('abcdef')) // -> true
+console.log(isUnique('1234567')) // -> true
+console.log(isUnique('abcABC')) // -> true
+console.log(isUnique('abcadef')) // -> false
+
+//case 2 - продвинутый способ            map - структура данных
+
 // function isUnique(string) {
-//     for(let i=0; i< string.length; i++) {
-//         const char = string[i];
-//         if(string.indexOf(char) !== i) {
-//             return false
-//         }
+// const set = new Set();
+
+// for(let i =0; i < string.length; i++) {
+//     const char = string[i];
+
+//     if(set.has(char)) {
+//         return false
+//      }
+//     set.add(char)
 //     }
 //     return true
 // }
-
 // console.log(isUnique('abcadef'))
 
-//case 2 - продвинутый способ
 
-function isUnique(string) {
-return new Set(string).size === string.length
-}
-console.log(isUnique('abcdef'))
+//case 3 - продвинутый способ
+//еще более лаконичный:
+
+// function isUnique(string) {
+// return new Set(string).size === string.length
+// }
+// console.log(isUnique('abcdef'))
