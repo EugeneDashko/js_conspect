@@ -33,20 +33,20 @@
 
 //case 1
 
-function isUnique(string) {
-    for(let i=0; i< string.length; i++) {
-        const char = string[i];
-        if(string.indexOf(char) !== i) {
-            return false
-        }
-    }
-    return true
-}
+// function isUnique(string) {
+//     for(let i=0; i< string.length; i++) {
+//         const char = string[i];
+//         if(string.indexOf(char) !== i) {
+//             return false
+//         }
+//     }
+//     return true
+// }
 
-console.log(isUnique('abcdef')) // -> true
-console.log(isUnique('1234567')) // -> true
-console.log(isUnique('abcABC')) // -> true
-console.log(isUnique('abcadef')) // -> false
+// console.log(isUnique('abcdef')) // -> true
+// console.log(isUnique('1234567')) // -> true
+// console.log(isUnique('abcABC')) // -> true
+// console.log(isUnique('abcadef')) // -> false
 
 //case 2 - продвинутый способ            map - структура данных
 
@@ -73,3 +73,25 @@ console.log(isUnique('abcadef')) // -> false
 // return new Set(string).size === string.length
 // }
 // console.log(isUnique('abcdef'))
+
+//===================//=============  #3 ПЛОСКИЙ МАССИВ ===================//============
+//ПРИНИМАЕТ МАССИВ С МАССИВАМИ И ВОЗВРАЩАЕТ РАЗВЕРНУТЫЙ МАССИВ
+
+// Решение через РЕКУРСИЮ
+function flatten(array) {
+    const resArr =[];
+    for(let i=0; i < array.length; i++) {
+        if(Array.isArray(array[i])) {
+            const flat = flatten(array[i])
+         for(let j=0; j < flat.length; j++) {
+            resArr.push(flat[j])
+         }
+    } else {
+        resArr.push(array[i])
+        }
+    }
+    return resArr;
+  }
+
+  console.log(flatten([[1], [[2, 3]], [[[4]]]])) // -> [1, 2, 3, 4]
+

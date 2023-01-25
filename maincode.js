@@ -21,12 +21,9 @@
 
 
 
-
-
-
 //====//=====//======//======//=====//======//======//=====//======//======//=====//======//====== FOR OF- ПЕРЕБИРАЮЩИЙ МЕТОД
-// for (person of people) {
-//     console.log(person) 
+// for (let person of people) {
+//     console.log(person)
 // }
 //====//=====//======//======//=====//======//======//=====//======//======//=====//======//====== FOR OF- ПЕРЕБИРАЮЩИЙ МЕТОД
 
@@ -47,6 +44,7 @@
 // people.forEach(function(person, index, peopleArr) {
 //     console.log(person)
 // })
+
 //ES6:
 // people.forEach(person => console.log(person))
 
@@ -59,7 +57,8 @@
 //====//=====//======//======//=====//======//======//=====//======//======//=====//======//====== MAP- ПЕРЕБИРАЮЩИЙ МЕТОД
 
 //MAP - с помощью его можно создавать новые массивы ( он принимает такие же аргументы как и меотод forEach).
-// И ЗДЕСЬ ВАЖНО ЧТО-ТО ВЕРНУТЬ
+    // И ЗДЕСЬ ВАЖНО ЧТО-ТО ВЕРНУТЬ
+    //!!!!!!!!!!!!!!!Однако если применть метод map(), к массиву объектов, то исходный массив изменяется!!!!!!!!!!!!!
 
 //====//=====//======//======//=====//======//======//=====//======//======//=====//======//====== MAP- ПЕРЕБИРАЮЩИЙ МЕТОД
 
@@ -74,33 +73,33 @@
 // const tF =temp.map(item => item*1.8+32);
 // console.log(t)
 
-// let a = [33, 44, 55];
 
+
+// let a = [33, 44, 55];
 // let b = a.map((item, index, array) => {
 //     if(index==1) {
 //         array[index+1] = 66;
 //     }
 //     return item
 // })
-
 // console.log(b) //[33, 44, 66]
 
 
 
+//  если применть метод map(), к массиву объектов, то исходный массив изменяется
+const z = [
+    {'name': 'Ivan', 'order': 12, 'sum': '123,5'},
+    {'name': ' Sergey     ', 'order': 12, 'sum': '123.5'},
+    {'name': 'matilda    ', 'order': 12, 'sum': '123,5'},
+    {'name': 'Ivat Pert ', 'order': 12, 'sum': '123,50'}
+];
 
+const zBack = z.map((item) => {
+    return item.name = item.name.trim().toLocaleLowerCase();
 
+})
 
-// const z = [
-//     {'name': 'Ivan', 'order': 12, 'sum': '123,5'},
-//     {'name': ' Sergey     ', 'order': 12, 'sum': '123.5'},
-//     {'name': 'matilda    ', 'order': 12, 'sum': '123,5'},
-//     {'name': 'Ivat Pert ', 'order': 12, 'sum': '123,50'}
-// ];
-
-// const zBack = z.map(item=> {
-//     item.name = item.name.trim().toLocaleLowerCase();
-//     return item;
-// })
+console.log(z);
 
 
 
