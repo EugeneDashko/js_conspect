@@ -30,7 +30,7 @@
 
 
 //===================//=============  #2 СРАВНЕНИЕ СИМВОЛОВ СТРОКИ ===================//============
-
+// Vladilen: https://vladilen.notion.site/JavaScript-473541d86991472fb844c5fa35d5dbf4
 //case 1
 
 // function isUnique(string) {
@@ -78,20 +78,42 @@
 //ПРИНИМАЕТ МАССИВ С МАССИВАМИ И ВОЗВРАЩАЕТ РАЗВЕРНУТЫЙ МАССИВ
 
 // Решение через РЕКУРСИЮ
-function flatten(array) {
-    const resArr =[];
-    for(let i=0; i < array.length; i++) {
-        if(Array.isArray(array[i])) {
-            const flat = flatten(array[i])
-         for(let j=0; j < flat.length; j++) {
-            resArr.push(flat[j])
-         }
-    } else {
-        resArr.push(array[i])
+// function flatten(array) {
+//     const resArr =[];
+//     for(let i=0; i < array.length; i++) {
+//         if(Array.isArray(array[i])) {
+//             const flat = flatten(array[i])
+//          for(let j=0; j < flat.length; j++) {
+//             resArr.push(flat[j])
+//          }
+//     } else {
+//         resArr.push(array[i])
+//         }
+//     }
+//     return resArr;
+//   }
+
+//   console.log(flatten([[1], [[2, 3]], [[[4]]]])) // -> [1, 2, 3, 4]
+
+
+//===================//=============  #3 Удаление всех повторяющихся значений в строке ===================//============
+// Vladilen: https://vladilen.notion.site/JavaScript-473541d86991472fb844c5fa35d5dbf4
+
+function removeDupes(str) {
+    const res = []; 
+    const map = {};
+    for (let i =0; i < str.length; i++) {
+        const char = str[i];
+        if(!map[char]) {
+            map[char] = true;
+            res.push(char);
         }
-    }
-    return resArr;
-  }
+        }
+    return res.join('');
+}
 
-  console.log(flatten([[1], [[2, 3]], [[[4]]]])) // -> [1, 2, 3, 4]
 
+console.log(removeDupes('abcd')) // -> 'abcd'
+console.log(removeDupes('aabbccdd')) // -> 'abcd'
+console.log(removeDupes('abcddbca')) // -> 'abcd'
+console.log(removeDupes('abababcdcdcd')) // -> 'abcd'

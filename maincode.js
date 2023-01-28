@@ -87,20 +87,19 @@
 
 
 //  если применть метод map(), к массиву объектов, то исходный массив изменяется
-const z = [
-    {'name': 'Ivan', 'order': 12, 'sum': '123,5'},
-    {'name': ' Sergey     ', 'order': 12, 'sum': '123.5'},
-    {'name': 'matilda    ', 'order': 12, 'sum': '123,5'},
-    {'name': 'Ivat Pert ', 'order': 12, 'sum': '123,50'}
-];
+// const z = [
+//     {'name': 'Ivan', 'order': 12, 'sum': '123,5'},
+//     {'name': ' Sergey     ', 'order': 12, 'sum': '123.5'},
+//     {'name': 'matilda    ', 'order': 12, 'sum': '123,5'},
+//     {'name': 'Ivat Pert ', 'order': 12, 'sum': '123,50'}
+// ];
 
-const zBack = z.map((item) => {
-    return item.name = item.name.trim().toLocaleLowerCase();
+// const zBack = z.map((item) => {
+//     return item.name = item.name.trim().toLocaleLowerCase();
 
-})
+// })
 
-console.log(z);
-
+// console.log(z);
 
 
 
