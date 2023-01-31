@@ -122,30 +122,97 @@
 
 
 
-//===================//=============  #3 Вернуть чаще всего повторяющеся слово в массиве ===================//============
+//===================//=============  #4 Вернуть чаще всего повторяющеся слово в массиве ===================//============
 
-function highestFrequency(array) {
-    const map = {};
-    let maxFreq = 0;
-    let maxFreqStr = array[0]
+// function highestFrequency(array) {
+//     const map = {};
+//     let maxFreq = 0;
+//     let maxFreqStr = array[0]
 
-    for (let i = 0; i < array.length; i++) {
-        const current = array [i];
+//     for (let i = 0; i < array.length; i++) {
+//         const current = array [i];
 
-        if (map[current]) {
-            map[current]++
-        } else {
-            map[current] = 1
-        }
-        if(map[current] > maxFreq) {
-            maxFreq = map[current]
-            maxFreqStr = current;
-        }
-    }
-    return maxFreqStr
-}
+//         if (map[current]) {
+//             map[current]++
+//         } else {
+//             map[current] = 1
+//         }
+//         if(map[current] > maxFreq) {
+//             maxFreq = map[current]
+//             maxFreqStr = current;
+//         }
+//     }
+//     console.log(maxFreq)
+//     console.log(maxFreqStr)
+//     return maxFreqStr
+// }
 
-console.log(highestFrequency(['a', 'b', 'c', 'c', 'd', 'e', 'd', 'd'])) // -> c
-console.log(highestFrequency(['abc', 'def', 'abc', 'def', 'abc'])) // -> abc
-console.log(highestFrequency(['abc', 'def'])) // -> abc
-console.log(highestFrequency(['abc', 'abc', 'def', 'def', 'def', 'ghi', 'ghi', 'ghi', 'ghi' ])) // -> ghi
+// console.log(highestFrequency(['a', 'b', 'c', 'c', 'd', 'e'])) // -> c
+// console.log(highestFrequency(['abc', 'def', 'abc', 'def', 'abc'])) // -> abc
+// console.log(highestFrequency(['abc', 'def'])) // -> abc
+// console.log(highestFrequency(['abc', 'abc', 'def', 'def', 'def', 'ghi', 'ghi', 'ghi', 'gh']));
+
+
+
+
+
+
+
+
+
+
+//===================//=============  #5 Повернута ли строка? ===================//============
+
+// ===== мое решение ===========================================
+// function isStringRotated(source, test) {
+//     let newarr = {};
+//     let newarr2 ={};
+//         if(source.length == test.length) {
+//             for (let i = 0; i < source.length; i++) {
+//                 let char = source[i];
+//                 if (newarr[char]) newarr[char]++
+//                 else newarr[char] = 1;
+//             }
+//             for (let j = 0; j < test.length; j++) {
+//                 let char2 = test[j];
+//                 if (newarr2[char2]) newarr2[char2]++
+//                 else newarr2[char2] = 1;
+//             }
+//             for (key in newarr) {
+//                 if(newarr[key] == newarr2[key]) return true
+//             }
+//         } else {
+//             return false
+//         }
+
+//     }
+
+
+
+// =========================решение  из урока==============================
+//case 1
+
+// function isStringRotated(source, test) {
+//     if(source.length !== test.length) return false
+
+//     for (let i = 0; i < source.length; i++) {
+//         const rotate = source.slice(i, source.length) + source.slice(0, i)
+//         console.log(rotate)
+//         if (rotate == test) {
+//             return true
+//         }
+//     }
+//     return false
+// }
+
+
+//case 2
+
+// function isStringRotated(source, test) {
+//     return (source + source).includes(test) && source.length === test.length
+
+// }
+
+//   console.log(isStringRotated('javascript', 'scriptjava')) // -> true
+//   console.log(isStringRotated('javascript', 'iptjavascr')) // -> true
+//   console.log(isStringRotated('javascript', 'java')) // -> false
