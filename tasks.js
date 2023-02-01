@@ -197,7 +197,6 @@
 
 //     for (let i = 0; i < source.length; i++) {
 //         const rotate = source.slice(i, source.length) + source.slice(0, i)
-//         console.log(rotate)
 //         if (rotate == test) {
 //             return true
 //         }
