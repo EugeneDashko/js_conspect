@@ -514,7 +514,7 @@ const student = {
     avgGrade: 4
 }
 const student2 = {
-    name: 'Vasya',
+    name: 'Evgeny',
     avgGrade: 5
 }
 const student3 = {
@@ -553,7 +553,7 @@ const allStudents = [...maleStudent, ...famaleStudent]
 // const reDiplomaStudents = allStudents.filter((value) => {
 //     if(value.avgGrade < 5) {
 //         return false
-//     } 
+//     }
 //     return true
 // })
 
@@ -562,7 +562,23 @@ const allStudents = [...maleStudent, ...famaleStudent]
 
 // console.log(reDiplomaStudents)
 
+console.log(allStudents)
+const ourSchool = allStudents.reduce((acc, value) => {
 
+    // console.log(acc, 'accum');
+    // console.log(value, 'value');
+
+    const newGrades =  [...acc.students, value.avgGrade];
+
+    return {
+        students: [...acc.students],
+        studentsGrade: newGrades
+    }
+}, {
+    students: [],
+    studentsGrade: [],
+})
+console.log(ourSchool)
 
 
 
