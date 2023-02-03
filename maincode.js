@@ -524,10 +524,43 @@ const student3 = {
 
 const maleStudent = [student, student2];
 const famaleStudent = [student3]
-console.log( famaleStudent)
+// console.log( famaleStudent)
 const allStudents = [...maleStudent, ...famaleStudent]
-console.log(allStudents)
+// console.log(allStudents)
 
+//case 1
+// let checkedStudents=[];
+
+// allStudents.forEach((value) => {
+//     checkedStudents.push({
+//         ...value,
+//         checker:true
+//     })
+// })
+
+//case 2
+// let tenGradeSystemStudents=[];
+
+// allStudents.forEach((value) => {
+//     tenGradeSystemStudents.push({
+//         ...value,
+//         avgGrade: value.avgGrade * 2
+//     })
+// })
+// console.log(tenGradeSystemStudents)
+
+//case 3
+// const reDiplomaStudents = allStudents.filter((value) => {
+//     if(value.avgGrade < 5) {
+//         return false
+//     } 
+//     return true
+// })
+
+//case3  короткая запись:
+// const reDiplomaStudents = allStudents.filter((value) => value.avgGrade == 5)
+
+// console.log(reDiplomaStudents)
 
 
 
