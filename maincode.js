@@ -37,6 +37,17 @@
 
 // FOREACH = for
 
+// callback
+// Функция, которая будет вызвана для каждого элемента массива. Она принимает от одного до трёх аргументов:
+
+// currentValue
+// Текущий обрабатываемый элемент в массиве.
+
+// index Необязательный
+// Индекс текущего обрабатываемого элемента в массиве.
+
+// array Необязательный
+// Массив, по которому осуществляется проход.
 //====//=====//======//======//=====//======//======//=====//======//======//=====//======//====== forEach- ПЕРЕБИРАЮЩИЙ МЕТОД
 
 
@@ -409,6 +420,15 @@
 
 
 
+//====//=====//======//======//=====//======//======//=====//======//======//=====//======//====== SPREAD или ...
+// SPREAD - С его помощью обычно КОПИРУЮТ или СОЕДИНЯЮТ массивы.
+//====//=====//======//======//=====//======//======//=====//======//======//=====//======//====== SPREAD или ...
+
+// const arr1 = [1,2,3,4];
+// const arr2 = [5,6,7,8];
+// const result = [...arr1, ...arr2];
+// console.log(result) //[1, 2, 3, 4, 5, 6, 7, 8]
+
 
 
 
@@ -562,25 +582,22 @@ const allStudents = [...maleStudent, ...famaleStudent]
 
 // console.log(reDiplomaStudents)
 
-console.log(allStudents)
+
+
+// console.log(allStudents)
 const ourSchool = allStudents.reduce((acc, value) => {
-
-    // console.log(acc, 'accum');
-    // console.log(value, 'value');
-
-    const newGrades =  [...acc.students, value.avgGrade];
+    console.log(acc, "acc")
+    console.log(value, "value")
 
     return {
-        students: [...acc.students],
-        studentsGrade: newGrades
+        students: [...acc.students, value.name],
+        studentsGrade: [...acc.studentsGrade, value.avgGrade]
     }
 }, {
     students: [],
     studentsGrade: [],
 })
 console.log(ourSchool)
-
-
 
 
 
@@ -633,5 +650,10 @@ console.log(ourSchool)
     // alert( str ); // Вася;Петя;Маша
 
 //====//=====//======//======//=====//======//======//=====//======//======//=====//======//====== JOIN
+
+
+
+
+
 
 
