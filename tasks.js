@@ -217,3 +217,60 @@
 //   console.log(isStringRotated('javascript', 'java')) // -> false
 
 
+
+
+
+//===================//=============  #6 Повернута ли строка? ===================//============
+// ### Является ли массив подмножеством другого массива
+
+// Напишите функцию, которая проверяет, является ли второй массив подмножеством первого. То есть есть ли элементы второго массива в первом.
+
+// **Input**: Number[] & String[], Number[] & String[]
+
+// **Output**: Boolean
+
+
+//case 1
+
+// function arraySubset(source, subset) {
+//     if(source.length < subset.lenght) return false;
+
+//     for(let i = 0; i < subset.length; i++) {
+//         const index = source.indexOf(subset[i]);
+//         if (index == -1) {
+//             return false
+//         }
+//         delete source[index];
+//     }
+//     return true
+//   }
+  
+//   console.log(arraySubset([2, 1, 3], [1, 2, 3])) // -> true
+//   console.log(arraySubset([2, 1, 1, 3], [1, 2, 3])) // -> true
+//   console.log(arraySubset([1, 1, 1, 3], [1, 3, 3])) // -> false
+//   console.log(arraySubset([1, 2], [1, 2, 3])) // -> false
+
+
+
+
+//===================//=============  #6 Повернута ли строка? ===================//============
+// ### Анаграммы
+
+// Напишите функцию, которая проверяет, являются ли все элементы в массиве анаграммами друг друга.
+
+// **Input**: String[]
+
+// **Output**: Boolean
+
+
+//case 1
+
+function allAnagrams(array) {
+    const sorted = array.map(str => str.split('').sort().join(''))
+    console.log(sorted)
+    if(let y = 0; i < sorted.length; y++) {
+
+    }
+  }
+  console.log(allAnagrams(['abcd', 'bdac', 'cabd'])) // true
+  console.log(allAnagrams(['abcd', 'bdXc', 'cabd'])) // false

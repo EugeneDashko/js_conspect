@@ -198,6 +198,7 @@
 
 //====//=====//======//======//=====//======//======//=====//======//======//=====//======//====== REDUCE- ПЕРЕБИРАЮЩИЙ МЕТОД
 
+// case 1
 
 // let amount = 0;
 // for (let i = 0; i < people.length; i++) {
@@ -217,7 +218,41 @@
 // console.log(amount)
 
 
+//case 2
+const student = {
+    name: 'Vasya',
+    avgGrade: 4
+}
+const student2 = {
+    name: 'Evgeny',
+    avgGrade: 5
+}
+const student3 = {
+    name: 'Anya',
+    avgGrade: 5
+}
 
+const maleStudent = [student, student2];
+const famaleStudent = [student3]
+// console.log( famaleStudent)
+const allStudents = [...maleStudent, ...famaleStudent]
+// console.log(allStudents)
+
+// console.log(allStudents)
+const ourSchool = allStudents.reduce((acc, value) => {
+    console.log(acc, "acc")
+    console.log(value, "value")
+
+    // const newGrades = [...acc.studentsGrade, value.avgGrade]
+    return {
+        students: [...acc.students, value.name],
+        studentsGrade: [...acc.studentsGrade, value.avgGrade] // или newGrades
+    }
+}, {
+    students: [],
+    studentsGrade: [],
+})
+console.log(ourSchool)
 
 
 
@@ -431,6 +466,15 @@
 
 
 
+//====//=====//======//======//=====//======//======//=====//======//======//=====//======//====== SORT()
+// SORT() - Отсортированный массив. Важно, что копия массива не создаётся - массив сортируется на месте.
+//====//=====//======//======//=====//======//======//=====//======//======//=====//======//====== SORT()
+
+// const arr1 =['a', 'y', 'b', 'c'];
+
+// console.log(arr1.sort()) //["a", "b", "c", "y"]
+
+ 
 
 //====//=====//======//======//=====//======//======//=====//======//======//=====//======//====== PUSH, POP
 
@@ -529,24 +573,24 @@
 //=================================================================================================================================================================
 
 
-const student = {
-    name: 'Vasya',
-    avgGrade: 4
-}
-const student2 = {
-    name: 'Evgeny',
-    avgGrade: 5
-}
-const student3 = {
-    name: 'Anya',
-    avgGrade: 5
-}
+// const student = {
+//     name: 'Vasya',
+//     avgGrade: 4
+// }
+// const student2 = {
+//     name: 'Evgeny',
+//     avgGrade: 5
+// }
+// const student3 = {
+//     name: 'Anya',
+//     avgGrade: 5
+// }
 
-const maleStudent = [student, student2];
-const famaleStudent = [student3]
-// console.log( famaleStudent)
-const allStudents = [...maleStudent, ...famaleStudent]
-// console.log(allStudents)
+// const maleStudent = [student, student2];
+// const famaleStudent = [student3]
+// // console.log( famaleStudent)
+// const allStudents = [...maleStudent, ...famaleStudent]
+// // console.log(allStudents)
 
 //case 1
 // let checkedStudents=[];
@@ -584,20 +628,7 @@ const allStudents = [...maleStudent, ...famaleStudent]
 
 
 
-// console.log(allStudents)
-const ourSchool = allStudents.reduce((acc, value) => {
-    console.log(acc, "acc")
-    console.log(value, "value")
 
-    return {
-        students: [...acc.students, value.name],
-        studentsGrade: [...acc.studentsGrade, value.avgGrade]
-    }
-}, {
-    students: [],
-    studentsGrade: [],
-})
-console.log(ourSchool)
 
 
 
