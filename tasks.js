@@ -340,13 +340,13 @@ const matrix = [
   */
   function rotate(source) {
     const rotated = source.map(_ => [])
-    
+
     for (let i = 0; i < source.length; i++) {
       for (let j = 0; j < source[i].length; j++) {
-        const value = source[i][j]
-        rotated[j][source.length -1 -i] = value
+        rotated[j][source.length -1 -i] = source[i][j];
       }
     }
+    console.log(rotated)
     return rotated
   }
  
