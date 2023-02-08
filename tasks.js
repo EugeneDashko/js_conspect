@@ -331,13 +331,27 @@ const matrix = [
     [7, 8, 9]
   ]
   
-  function rotate(source) {
-    const newMatrix = source[0].map(_ => [])
-    return newMatrix
-  }
+  /*Логика:
 
-  function print(array) {
-    array.forEach(i=>console.log(i))
+  0:0 0:1 0:2    0:2 1:2 2:2
+  1:0 1:1 1:2 -> 0:1 1:1 2:1
+  2:0 2:1 2:2    0:0 1:0 2:0
+
+  */
+  function rotate(source) {
+    const rotated = source.map(_ => [])
+    
+    for (let i = 0; i < source.length; i++) {
+      for (let j = 0; j < source[i].length; j++) {
+        const value = source[i][j]
+        rotated[j][source.length -1 -i] = value
+      }
+    }
+    return rotated
   }
-  
-print(rotate(matrix))
+ 
+  // Helfer func:
+  function print(arr) {
+    arr.forEach(i => console.log(i))
+  }
+  print(rotate(matrix))
