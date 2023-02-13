@@ -332,7 +332,7 @@
 //     [7, 8, 9]
 //   ]
   
->>>>>>> b211bcb1afbffeba2a62933ed20f99cc9009f5e1
+
   /*Логика:
 
   0:0 0:1 0:2    0:2 1:2 2:2
@@ -371,13 +371,56 @@
 
 // **Output**: Number
 
-function search(array, target) {
-  for(let i = 0; i < array.length; i++) {
-    if(array[i] === target) return i
+// function search(array, target) {
+//   for(let i = 0; i < array.length; i++) {
+//     if(array[i] === target) return i
 
+//   }
+//   return -1
+// }
+
+// console.log(search([1, 3, 6, 13, 17], 13)) // -> 3
+// console.log(search([1, 3, 6, 13, 17], 12)) // -> -1
+
+
+
+
+//===================//=============  #8 Простой поиск? ===================//============
+// Напишите функцию, которая проверит строку на сбалансированность скобок: `{}, (), []`. Вернуть `true` если они сбалансированы, иначе `false`.
+
+// **Input**: String
+
+// **Output**: Boolean
+
+
+function isBalanced(string) {
+  const start = '{[(';
+  const end = '}])';
+
+  const map = {
+    '}': '{',
+    ']':'[',
+    ')':'('
   }
-  return -1
+  
+  const queue = [];
+
+  for (let i = 0; i < string.length; i++) {
+    const char = string[i];
+    if(start.includes(char)) {
+      queue.push(char)
+    } else if (end.includes(char)) {
+      const last = queue.pop()
+      if (map[char] !== last) {
+        return false
+      }
+    }
+  }
+  return !queue.length;
 }
 
-console.log(search([1, 3, 6, 13, 17], 13)) // -> 3
-console.log(search([1, 3, 6, 13, 17], 12)) // -> -1
+console.log(isBalanced('(x + y) - (4)')) // -> true
+console.log(isBalanced('(((10 ) ()) ((?)(:)))')) // -> true
+console.log(isBalanced('[{()}]')) // -> true
+console.log(isBalanced('(50)(')) // -> false
+console.log(isBalanced('[{]}')) // -> false
