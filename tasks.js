@@ -330,7 +330,7 @@ const matrix = [
     [4, 5, 6],
     [7, 8, 9]
   ]
-  
+
   /*Логика:
 
   0:0 0:1 0:2    0:2 1:2 2:2
@@ -338,6 +338,7 @@ const matrix = [
   2:0 2:1 2:2    0:0 1:0 2:0
 
   */
+
   function rotate(source) {
     const rotated = source.map(_ => [])
 
@@ -346,10 +347,11 @@ const matrix = [
         rotated[j][source.length -1 -i] = source[i][j];
       }
     }
-    console.log(rotated)
     return rotated
   }
- 
+
+  console.log(rotate(matrix))
+
   // Helfer func:
   function print(arr) {
     arr.forEach(i => console.log(i))
