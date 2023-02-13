@@ -325,12 +325,14 @@
 
 //case
 
-const matrix = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
-  ]
 
+// const matrix = [
+//     [1, 2, 3],
+//     [4, 5, 6],
+//     [7, 8, 9]
+//   ]
+  
+>>>>>>> b211bcb1afbffeba2a62933ed20f99cc9009f5e1
   /*Логика:
 
   0:0 0:1 0:2    0:2 1:2 2:2
@@ -339,21 +341,43 @@ const matrix = [
 
   */
 
-  function rotate(source) {
-    const rotated = source.map(_ => [])
+  // function rotate(source) {
+  //   const rotated = source.map(_ => [])
 
-    for (let i = 0; i < source.length; i++) {
-      for (let j = 0; j < source[i].length; j++) {
-        rotated[j][source.length -1 -i] = source[i][j];
-      }
-    }
-    return rotated
+  //   for (let i = 0; i < source.length; i++) {
+  //     for (let j = 0; j < source[i].length; j++) {
+  //       rotated[j][source.length -1 -i] = source[i][j];
+  //     }
+  //   }
+  //   return rotated
+  // }
+  
+ 
+  // // Helfer func:
+  // function print(arr) {
+  //   arr.forEach(i => console.log(i))
+  // }
+  // print(rotate(matrix))
+
+
+
+  //===================//=============  #8 Простой поиск? ===================//============
+
+//   ### Простой поиск
+
+// Напишите функцию, которая принимает отсортированный массив с числами и число. Необходимо вернуть индекс числа, если оно есть в массиве. Иначе вернуть `-1`.
+
+// **Input**: Number[], Number
+
+// **Output**: Number
+
+function search(array, target) {
+  for(let i = 0; i < array.length; i++) {
+    if(array[i] === target) return i
+
   }
+  return -1
+}
 
-  console.log(rotate(matrix))
-
-  // Helfer func:
-  function print(arr) {
-    arr.forEach(i => console.log(i))
-  }
-  print(rotate(matrix))
+console.log(search([1, 3, 6, 13, 17], 13)) // -> 3
+console.log(search([1, 3, 6, 13, 17], 12)) // -> -1
