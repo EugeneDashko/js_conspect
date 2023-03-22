@@ -393,35 +393,282 @@
 // **Output**: Boolean
 
 
-function isBalanced(string) {
-  const start = '{[(';
-  const end = '}])';
+// function isBalanced(string) {
+//   const start = '{[(';
+//   const end = '}])';
 
-  const map = {
-    '}': '{',
-    ']':'[',
-    ')':'('
-  }
+//   const map = {
+//     '}': '{',
+//     ']':'[',
+//     ')':'('
+//   }
   
-  const queue = [];
+//   const queue = [];
 
-  for (let i = 0; i < string.length; i++) {
-    const char = string[i];
-    if(start.includes(char)) {
-      queue.push(char)
-    } else if (end.includes(char)) {
-      const last = queue.pop()
-      if (map[char] !== last) {
-        return false
-      }
-    }
-  }
-  return !queue.length;
-}
+//   for (let i = 0; i < string.length; i++) {
+//     const char = string[i];
+//     if(start.includes(char)) {
+//       queue.push(char)
+//     } else if (end.includes(char)) {
+//       const last = queue.pop()
+//       if (map[char] !== last) {
+//         return false
+//       }
+//     }
+//   }
+//   return !queue.length;
+// }
 
-console.log(isBalanced('()()')) // -> true
+// console.log(isBalanced('()()')) // -> true
 // console.log(isBalanced('(x + y) - (4)')) // -> true
 // console.log(isBalanced('(((10 ) ()) ((?)(:)))')) // -> true
 // console.log(isBalanced('[{()}]')) // -> true
 // console.log(isBalanced('(50)(')) // -> false
 // console.log(isBalanced('[{]}')) // -> false
+
+
+
+
+
+
+
+
+//===================//=============  Задачи с лекции RSS  ===================//============
+
+// function accum(str) {
+
+// const result = str.toLocaleLowerCase().split('').map((symb, index) => `${symb.toUpperCase()}${Array(index).fill(symb).join('-')}`)
+// return result;
+// }
+
+// console.log(accum("abcd") )//-> "A-Bb-Ccc-Dddd"
+// console.log(accum("RqaEzty")) //-> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
+// console.log(accum("cwAt")) //-> "C-Ww-Aaa-Tttt"
+
+//===================//=============  Tests RSS  ===================//============
+
+// test 1:
+
+///            1             
+// let name = 'John';
+// function printName() {
+//   let name = 'Peter';
+//   console.log(name);
+// }
+// printName();
+
+///            2             
+
+// printMessage();
+// function printMessage() {
+//   console.log('Hello!');
+// }
+
+///            3             
+
+// const foo = bar();
+// const number = 2;
+// function bar() {return number}
+
+///            4             
+
+// for(let i =0; i <3; i++) {
+//   setTimeout(function() {
+//     console.log(i)
+//   },5000)
+// }
+
+///            5             
+
+// function foo() {
+//   return {bar:1,
+//     barrr:2};
+// }
+// console.log(typeof foo().bar)
+
+///            6             
+
+// const details = {
+//   name: 'John!',
+// }
+// function getMessage(message) {
+//   return `${message} ${this.name}`;
+// }
+// console.log(getMessage.apply(details,['Hello']));
+
+///            7             
+
+// console.log((
+//   function(a) {
+//     arguments[0]=10
+//     return a;
+//   }
+// )(5));
+
+///            8             
+
+// let f = function(a,b) { return a+b }
+// console.log(f(1,2))
+
+// let f = new Function("a,b", "return a+b")
+// console.log(f(1,4))
+
+// let f = new Function("a", "b", "return a+b")
+// console.log(f(1,5))
+
+// let f = (a, b) => a + b;
+// console.log(f(1,8))
+
+// let f = (a, b) => { a + b }
+// console.log(f(1,3))
+
+///            9             
+
+// function foo() {console.log(this)}
+// foo.call(null);
+
+///            10             
+
+// var a =1; b = function a(x) {x&&a(--x);};
+// console.log(a);
+
+///            11             
+
+// "use strict"
+
+// const details = {
+//   message: 'Hello!',
+// }
+// function getMessage() {
+//   return this.message;
+// }
+
+// console.log(getMessage.call(details))
+
+///            12             
+
+// "use strict"
+// function getThis() {
+//   return this;
+// }
+// console.log(getThis());
+
+///            16             
+
+// let name = 'John';
+// function printName() {
+//   console.log(name);
+// }
+
+// setTimeout(()=> {
+//   let name = "Peter";
+//   printName();
+// }, 1000)
+
+///            17             
+
+// var name = 'John';
+// function printName() {
+//   console.log(name)
+//   var name = "Peter";
+//   console.log(name);
+// }
+// printName();
+
+///            18             
+
+// for(var i =0; i<3; i++) {
+//   setTimeout(function() {
+//     console.log(i);
+//   }, 1000)
+// }
+
+///            19             
+
+// for (var i =0; i < 10; i++) {
+//   //...
+// }
+// console.log(i);
+
+///            20             
+
+// function foo(a,b,c) {
+//   console.log(Function.getArguments(this));
+// }
+// function foo(a,b,c) {
+//   console.log (arguments)
+// }
+// function foo(a,b,c) {
+//   console.log(foo.getArguments());
+// }
+// function foo(a,b,c) {
+//   console.log(this.arguments);
+// }
+
+// foo(1,2,3)
+
+///            21             
+
+// function getThis() {
+//   return this;
+// }
+// console.log(getThis())
+
+///            22             
+// function foo(a, b) {
+//   return a*b;
+// }
+
+// const bar = foo.bind(null,2);
+// bar(2)
+// console.log('bar(2): ', bar(2));
+
+///            23             
+// console.log(message);
+// var message = 'Hello';
+
+///            24             
+
+// var name = 'John';
+// var user = {
+//   name:'Peter',
+//   printMessage() {
+//     console.log(`Hello, ${this.name}!`);
+//   }
+// };
+// var printMessage = user.printMessage;
+// printMessage();
+
+///            25             
+// let f = function g() {return 23;}
+// console.log(typeof g());
+
+// console.log(message);
+// let message = 'Hello'
+
+
+//test 2:
+
+
+
+// ==================  CODEWARS =============================CODEWARS===============
+
+function sortByBit(arr) {
+  let res = [];
+  let result = [];
+  for (let i of arr) {
+    res.push(i.toString(2));
+  }
+  res.forEach((item) => {
+    let r =0;
+    // result.push(r)
+    let result1 = item.split('').forEach((item) => {
+      r = r +item
+    })
+    console.log(result1 );
+    // console.log(item.split(''));
+  } )
+  // return result
+}
+
+console.log(sortByBit([7, 6, 15, 8]))
