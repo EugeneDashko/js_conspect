@@ -653,35 +653,27 @@
 
 // ==================  CODEWARS =============================CODEWARS===============
 
-function sortByBit(arr) {
-  let res = [];
-  for (let i of arr) {
-    res.push(i.toString(2));
-  }
-                    let funcSort = function (arg) {
-                    let sum;
-                    let ar = arg.split('');
-                    sum = ar.reduce((acc, item) => acc + Number(item),0)
-                    return sum
-                    }
-   console.log(res.sort((a,b)=>funcSort(a)-funcSort(b)))
-   let resTotal = res.map(item => parseInt(item, 2) )
-return resTotal
-}
-// sortByBit([7, 6, 15, 8])
-console.log(sortByBit([7, 6, 15, 8]));
+// https://www.codewars.com/kata/59fa8e2646d8433ee200003f/solutions/javascript
 
-// console.log(parseInt("111", 2));
-  // let result = res.map((item) => item.split(''));
+// function sortByBit(arr) {
+//   let res = [];
+//   for (let i of arr) {
+//     res.push(i.toString(2));
+//   }
+//   let funcSort = function (arg) {
+//     let sum = arg.toString(2).split('');
+//     let resultT = sum.reduce((acc, item) => {
+//     if (item == 1) {
+//       return acc + Number(item)
+//     }
+//     else  {
+//       return acc
+//     }
+//   })
+//     return resultT
+//   }
 
-  // console.log(star);
-  // star.sort((a,b)=> a-b);
-  // console.log(star);
-
-  // for (let u of star) {
-  //   let param = (String(u))
-  //   star3.push(param)
-  // }
-
-// console.log(sortByBit([7, 6, 15, 8]))
-// console.log(parseInt("110", 2));
+// arr.sort((a,b)=>funcSort(a)-funcSort(b) || a - b)
+// return arr
+// }
+// console.log(sortByBit([ 3, 8, 3, 6, 5, 7, 9, 1 ]));
