@@ -407,11 +407,13 @@ function isBalanced(string) {
 
   for (let i = 0; i < string.length; i++) {
     const char = string[i];
+    console.log('map[char]: ', map[char]);
     if(start.includes(char)) {
       queue.push(char)
     } else if (end.includes(char)) {
       const last = queue.pop()
       if (map[char] !== last) {
+
         return false
       }
     }
@@ -419,8 +421,9 @@ function isBalanced(string) {
   return !queue.length;
 }
 
-console.log(isBalanced('(x + y) - (4)')) // -> true
-console.log(isBalanced('(((10 ) ()) ((?)(:)))')) // -> true
-console.log(isBalanced('[{()}]')) // -> true
-console.log(isBalanced('(50)(')) // -> false
-console.log(isBalanced('[{]}')) // -> false
+console.log(isBalanced('()()()')) // -> true
+// console.log(isBalanced('(x + y) - (4)')) // -> true
+// console.log(isBalanced('(((10 ) ()) ((?)(:)))')) // -> true
+// console.log(isBalanced('[{()}]')) // -> true
+// console.log(isBalanced('(50)(')) // -> false
+// console.log(isBalanced('[{]}')) // -> false
