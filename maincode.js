@@ -80,9 +80,9 @@
 
 
 
-// const temp = [0, 4, 4, 6, 8, 10, 6, 4, 3, -1, -2, -2];
-// const tF =temp.map(item => item*1.8+32);
-// console.log(t)
+const temp = [0, 4, 4, 6, 8, 10, 6, 4, 3, -1, -2, -2];
+const t =temp.map(item => item*1.8+32);
+console.log(t)
 
 
 

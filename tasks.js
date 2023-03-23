@@ -655,19 +655,33 @@
 
 function sortByBit(arr) {
   let res = [];
-  let result = [];
   for (let i of arr) {
     res.push(i.toString(2));
   }
-  res.forEach((item) => {
-    let r =0;
-    // result.push(r)
-    let result1 = item.split('').forEach((item) => {
-      r = r +item
-    })
-    console.log(result1 );
-    // console.log(item.split(''));
-  } )
-  // return result
+                    let funcSort = function (arg) {
+                    let sum;
+                    let ar = arg.split('');
+                    sum = ar.reduce((acc, item) => acc + Number(item),0)
+                    return sum
+                    }
+   console.log(res.sort((a,b)=>funcSort(a)-funcSort(b)))
+   let resTotal = res.map(item => parseInt(item, 2) )
+return resTotal
 }
-console.log(sortByBit([7, 6, 15, 8]))
+// sortByBit([7, 6, 15, 8])
+console.log(sortByBit([7, 6, 15, 8]));
+
+// console.log(parseInt("111", 2));
+  // let result = res.map((item) => item.split(''));
+
+  // console.log(star);
+  // star.sort((a,b)=> a-b);
+  // console.log(star);
+
+  // for (let u of star) {
+  //   let param = (String(u))
+  //   star3.push(param)
+  // }
+
+// console.log(sortByBit([7, 6, 15, 8]))
+// console.log(parseInt("110", 2));
