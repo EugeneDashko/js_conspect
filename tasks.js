@@ -658,7 +658,6 @@ function sortByBit(arr) {
   let result = [];
   for (let i of arr) {
     res.push(i.toString(2));
->>>>>>> refs/remotes/origin/main
   }
   res.forEach((item) => {
     let r =0;
