@@ -651,7 +651,7 @@
 
 
 
-// ==================  CODEWARS =============================CODEWARS===============
+// ==================  CODEWARS  ==================  CODEWARS  ==================  CODEWARS  ==================  CODEWARS  ==================  CODEWARS  ==================  CODEWARS  ==================  CODEWARS  ==================
 
 // https://www.codewars.com/kata/59fa8e2646d8433ee200003f/solutions/javascript
 
