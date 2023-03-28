@@ -679,91 +679,52 @@
 // console.log(sortByBit([ 3, 8, 3, 6, 5, 7, 9, 1 ]));
 
 
-function recycle(array) {
-  let paper = [];
-  // console.log('paper: ', paper);
-  let glass =[];
-  let organic = [];
-  // console.log('organic: ', organic);
-  let plastic =[];
-  // console.log('plastic: ', plastic);
-  let result = [] ;
 
-  for (let i of array) {
-    let keys = Object.keys(i)
-    for (let j =0 ; j < keys.length; j++) {
-      if(keys[j] == 'material' || 'secondMaterial' ) {
-        if (i[keys[j]] == 'organic' && !glass.includes('organic') ) {
-          organic.push(i.type)
-        }
-        else if (i[keys[j]] == 'plastic' && !glass.includes('plastic')) {
-          plastic.push(i.type)
-        }
-        else if (i[keys[j]] == 'paper' && !glass.includes('paper')) {
-          paper.push(i.type)
-        }
-        else if(i[keys[j]] == 'glass' && !glass.includes('glass') ) {
-          glass.push(i.type)
-        }
-        // else return 
-      }
+//========================================================Let's Recycle!===================================================
 
-    }
+// function recycle(array) {
+//   console.log('array: ',array)
+//   let paper = [];
+//   let glass =[];
+//   let organic = [];
+//   let plastic =[];
 
-  }
-  result.push(paper,glass,organic,plastic)
-  console.log('result: ', result);
-}
-recycle ([
-  { type: 'glass', material: 'paper', secondMaterial: 'organic' },
-  { type: 'rotten pear', material: 'glass' },
-  { type: 'amazon box', material: 'paper', secondMaterial: 'plastic' },
-  { type: 'shoes', material: 'organic', secondMaterial: 'paper' },
-  { type: 'pasta', material: 'plastic' },
-  { type: 'chair', material: 'organic', secondMaterial: 'plastic' },
-  { type: 'printer box', material: 'glass', secondMaterial: 'organic' },
-  { type: 'grapes', material: 'plastic' },
-  {
-    type: 'blue bottle',
-    material: 'plastic',
-    secondMaterial: 'organic'
-  },
-  { type: 'beef', material: 'organic', secondMaterial: 'plastic' },
-  { type: 'iphone box', material: 'glass', secondMaterial: 'plastic' },
-  { type: 'sunglasses', material: 'glass' },
-  { type: 'newspaper', material: 'organic' },
-  { type: 'salmon', material: 'organic', secondMaterial: 'paper' }
-])
-// recycle([
-//   { type: 'amazon box', material: 'organic', secondMaterial: 'glass' },
-//   { type: 'beef', material: 'organic', secondMaterial: 'paper' },
-//   { type: 'mask', material: 'plastic' },
-//   { type: 'bucket', material: 'organic' },
-//   { type: 'knife', material: 'plastic' },
-//   { type: 'sword', material: 'paper', secondMaterial: 'plastic' },
-//   { type: 'grapes', material: 'organic', secondMaterial: 'glass' },
-//   { type: 'shoes', material: 'plastic', secondMaterial: 'paper' },
-//   { type: 'newspaper', material: 'paper', secondMaterial: 'glass' },
-//   { type: 'fork', material: 'plastic', secondMaterial: 'paper' },
-//   { type: 'rotten bananas', material: 'paper' },
-//   { type: 'rotten pear', material: 'glass' },
-//   { type: 'pasta', material: 'glass', secondMaterial: 'paper' },
-//   { type: 'salmon', material: 'plastic', secondMaterial: 'paper' },
-//   { type: 'broken record', material: 'plastic' },
-//   { type: 'chicken', material: 'plastic', secondMaterial: 'glass' },
-//   { type: 'table', material: 'paper' },
-//   { type: 'usb cable', material: 'glass' },
-//   { type: 'printer box', material: 'organic' },
-//   { type: 'glass', material: 'glass', secondMaterial: 'plastic' }
+//   let result = [] ;
+
+//   for (let i of array) {
+//     let keys = Object.keys(i)
+//     console.log('keys: ', keys);
+//     for (let j =1 ; j < keys.length; j++) {
+
+//       if(keys[j+1] == 'material' || 'secondMaterial' ) {
+//         if (i[keys[j]] === 'organic' && !organic.includes(i.type) ) {
+
+//           organic.push(i.type)
+//         }
+//         else if (i[keys[j]] === 'plastic' && !plastic.includes(i.type)) {
+//           plastic.push(i.type)
+//         }
+//         else if (i[keys[j]] === 'paper' && !paper.includes(i.type)) {
+//           paper.push(i.type)
+//         }
+//         else if (i[keys[j]] === 'glass' && !glass.includes(i.type) ) {
+//           glass.push(i.type)
+//         }
+//       }
+
+//     }
+
+//   }
+//   result.push(paper,glass,organic,plastic)
+//   console.log('resultMY: ', result);
+//   return result
+
+// }
+// recycle ([
+//   {"type": "rotten apples", "material": "organic"},
+//   {"type": "out of date yogurt", "material": "organic", "secondMaterial": "plastic"},
+//   {"type": "wine bottle", "material": "glass", "secondMaterial": "paper"},
+//   {"type": "amazon box", "material": "paper"},
+//   {"type": "beer bottle", "material": "glass", "secondMaterial": "paper"}
 // ])
-
-// [ [ 'beef', 'sword', 'shoes', 'newspaper', 'fork', 'rotten bananas', 'pasta', 'salmon', 'table' ],
-// [ 'amazon box', 'grapes', 'newspaper', 'rotten pear', 'pasta', 'chicken', 'usb cable', 'glass', 'glass' ],
-// [ 'amazon box', 'beef', 'bucket', 'grapes', 'printer box' ],
-// [ 'mask', 'knife', 'sword', 'shoes', 'fork', 'salmon', 'broken record', 'chicken', 'glass' ] ]
-// //to deeply equal
-// [ [ 'beef', 'sword', 'shoes', 'newspaper', 'fork', 'rotten bananas', 'pasta', 'salmon', 'table' ],
-// [ 'amazon box', 'grapes', 'newspaper', 'rotten pear', 'pasta', 'chicken', 'usb cable', 'glass' ],
-// [ 'amazon box', 'beef', 'bucket', 'grapes', 'printer box' ],
-// [ 'mask', 'knife', 'sword', 'shoes', 'fork', 'salmon', 'broken record', 'chicken', 'glass' ] ]
 
