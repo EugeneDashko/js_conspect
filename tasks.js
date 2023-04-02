@@ -728,3 +728,39 @@
 //   {"type": "beer bottle", "material": "glass", "secondMaterial": "paper"}
 // ])
 
+
+
+//========================================================Javascript Mathematician===================================================
+
+
+// const calculate = (...args1) => () => [...args1, ...args2].reduce((acc, cur) => acc + cur, 0)
+// function calculate (...first) {
+//   let result = function (...second) {
+//     let result2 =[...first, ...second].reduce((acc, item) => acc + item, 0);
+//     return result2
+//   }
+//   return result
+// }
+// console.log(calculate(2,4)(3,7,1));
+
+
+//========================================================Javascript Mathematician===================================================
+// Teory POLIFIL https://www.youtube.com/watch?v=ti6vnn3NypQ&t=11s
+
+
+Array.prototype.map=function(callback){
+  // if(!Array.prototype.myMap) {
+    // if(!(this instanceof Array || this instanceof String)) {
+    //   throw new TyperError(`Array.prototype.myMap was called on wrong type`)
+    // }
+    // if(typeof callback !== 'function') {
+    //   throw new TypeError (`Array.prototype.myMap ${callback} is not a function`)
+    // }
+    let result = [];
+    for( let i =0; i < this.length; i++) {
+      if (isNaN(Number(i))) continue
+      result.push(callback(this[i], i, this));
+    }
+    return result
+  // }
+}
