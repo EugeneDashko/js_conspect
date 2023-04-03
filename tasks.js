@@ -748,19 +748,85 @@
 // Teory POLIFIL https://www.youtube.com/watch?v=ti6vnn3NypQ&t=11s
 
 
-Array.prototype.map=function(callback){
-  // if(!Array.prototype.myMap) {
-    // if(!(this instanceof Array || this instanceof String)) {
-    //   throw new TyperError(`Array.prototype.myMap was called on wrong type`)
-    // }
-    // if(typeof callback !== 'function') {
-    //   throw new TypeError (`Array.prototype.myMap ${callback} is not a function`)
-    // }
-    let result = [];
-    for( let i =0; i < this.length; i++) {
-      if (isNaN(Number(i))) continue
-      result.push(callback(this[i], i, this));
-    }
-    return result
-  // }
+
+
+Array.prototype.map=function(callback,context){
+  let newArr = [];
+  console.log("this:", this, "callback:", callback, "context:", context)
+  newArr.length=this.length; // длина массива равняется длине итерируемого массива
+  for(let i in this){ // итерация по массиву
+    if(isNaN(Number(i)))continue; // если isNaN , по пропускаю итерацию
+//     console.log("isNaN:", isNaN(Number(i)))
+    newArr[i]=(callback.apply(context,[this[i],Number(i),this])); // вызываю на callback apply  с указанным контектомвызова и массивом
+  }
+  return newArr;
 }
+
+
+// Array.prototype.map=function(callback){
+//   if(!Array.prototype.myMap) {
+//     if(!(this instanceof Array || this instanceof String)) {
+//       throw new TyperError(`Array.prototype.myMap was called on wrong type`)
+//     }
+//     if(typeof callback !== 'function') {
+//       throw new TypeError (`Array.prototype.myMap ${callback} is not a function`)
+//     }
+//     let result = [];
+//     for( let i =0; i < this.length; i++) {
+//       if (isNaN(Number(i))) continue
+//       result.push(callback(this[i], i, this));
+//     }
+//     return result
+//   }
+// }
+
+//========================================================Javascript from the Inside #2: Filter===================================================
+
+// Array.prototype.filter = function (callback, context) {
+//   let result = [];
+//   if (context) {
+//     callback = callback.bind(context);
+//   }
+//   let len = this.length;
+//   for (let i = 0; i < len; i++) {
+//     if (i in this) {
+//       if (callback(this[i], i, this)) {
+//         result.push(this[i]);
+//       }
+//     }
+//   }
+//   return result;
+// };
+
+
+//========================================================The Coupon Code===================================================
+
+
+// function checkCoupon(enteredCode, correctCode, currentDate, expirationDate){
+//   console.log('enteredCode: ', enteredCode);
+//   console.log('correctCode: ', correctCode);
+//   console.log('currentDate: ', currentDate);
+//   console.log('expirationDate: ', expirationDate);
+//   const firstDate = new Date (currentDate);
+//   const secondDate =new Date (expirationDate);
+
+//     if(enteredCode==correctCode && firstDate.getTime() == secondDate.getTime()) {
+//       return true
+//     }
+//     else return false
+// }
+
+
+//========================================================Unlucky Days===================================================
+
+
+function unluckyDays(year){
+  const date = new Date(`January 13, ${year}`);
+  console.log('date: ', date);
+  return [...Array(12).keys()].reduce((acc,el)=>{
+      date.setMonth(el);
+      return date.getDay() === 5 ? acc+1 :acc;
+  },0);
+}
+
+unluckyDays(2015)
